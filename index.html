@@ -2,26 +2,30 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동작구 DRT 앱 다운로드</title>
+    <style>
+        /* 화면 전체를 하얗게 가려서 코드가 보이지 않게 합니다 */
+        body { margin: 0; padding: 0; background: #ffffff; display: none; }
+    </style>
     <script>
-        window.onload = function() {
+        (function() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var targetUrl = "https://play.google.com/store/apps/details?id=com.mobble.mod.dongjak"; // 기본값(안드로이드)
+
             // iOS 판별
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = "https://apps.apple.com/app/id6754006150";
+                targetUrl = "https://apps.apple.com/app/id6754006150";
             }
-            // Android 판별
-            else if (/android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.mobble.mod.dongjak";
-            }
-            // 그 외 (PC 등) 기본은 안드로이드 스토어로 연결
-            else {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.mobble.mod.dongjak";
-            }
-        };
+
+            // 페이지 로드를 기다리지 않고 즉시 이동
+            window.location.replace(targetUrl);
+        })();
     </script>
 </head>
 <body>
-    <p style="text-align: center; margin-top: 50px;">앱 스토어로 이동 중입니다...</p>
+    <p style="text-align: center; margin-top: 50%; font-family: sans-serif; color: #666;">
+        잠시 후 스토어로 이동합니다...
+    </p>
 </body>
 </html>

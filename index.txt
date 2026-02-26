@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>동작구 DRT 앱 다운로드</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // iOS 판별
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/app/id6754006150";
+            }
+            // Android 판별
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.mobble.mod.dongjak";
+            }
+            // 그 외 (PC 등) 기본은 안드로이드 스토어로 연결
+            else {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.mobble.mod.dongjak";
+            }
+        };
+    </script>
+</head>
+<body>
+    <p style="text-align: center; margin-top: 50px;">앱 스토어로 이동 중입니다...</p>
+</body>
+</html>
